@@ -1,0 +1,21 @@
+body {
+    margin:2%;
+
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width: 300px;
+}
+
+form div {
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+form div label {
+    justify-self: flex-end;
+}

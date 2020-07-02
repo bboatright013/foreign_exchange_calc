@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{%block title%} Home Page{% endblock %}
+
+{%block flashzone %}
+
+{% for msg in get_flashed_messages() %}
+  <p>{{ msg }}</p>
+{% endfor %}
+
+{% endblock %}
+
+
+{%block main%}
+
+<form action="/convert">
+    <div>
+    <label for="valFrom">Converting From: </label>
+    <input type="text" name="valFrom" placeholder="USD" maxlength="3">
+    </div>
+    <div>
+    <label for="valTo">Converting To: </label>
+    <input type="text" name="valTo" placeholder="GBP" maxlength="3">
+    </div>
+    <div>
+    <label for="valAmount">Amount: </label>
+    <input type="number" name="valAmount" placeholder="number">
+    </div>
+    <button type="submit">Convert</button>
+</form>
+
+
+{% endblock %}
