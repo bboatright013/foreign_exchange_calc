@@ -17,8 +17,8 @@ def home():
 
 @app.route('/convert')
 def convert():
-    valFrom = request.args.get('valFrom').upper()
-    valTo = request.args.get('valTo').upper()
+    valFrom = request.args.get('valFrom')
+    valTo = request.args.get('valTo')
     if symbol.get_symbol(valFrom) == None or symbol.get_symbol(valTo) == None:
         flash('Check for valid currency codes')
         return redirect('/')
@@ -29,6 +29,8 @@ def convert():
     elif int(valAmount) <= 0:
         flash('check that amount is positive')
         return redirect('/')
+    valFrom = valFrom.upper()
+    valTo = valTo.upper()
     xchange = currency.convert(valFrom, valTo, float(valAmount))
     xchange = format(xchange, '.2f')
     xchangeSymbol = symbol.get_symbol(valTo)
